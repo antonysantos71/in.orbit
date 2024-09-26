@@ -45,8 +45,8 @@ export function Summary() {
       </div>
 
       <div className="flex flex-col gap-3">
-        <Progress value={8} max={15}>
-          <ProgressIndicator style={{ width: `${completedPercentage}` }} />
+        <Progress value={data.completed} max={data.total}>
+          <ProgressIndicator style={{width: `${completedPercentage}`}} />
         </Progress>
 
         <div className="flex items-center justify-between text-xs text-zinc-400">

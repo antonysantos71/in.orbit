@@ -1,11 +1,10 @@
+import { useState } from 'react';
 import { Dialog } from "./components/ui/dialog";
 import { CreateGoal } from "./components/create-goal";
 import { EmptyGoals } from "./components/empty-goals";
 import { Summary } from "./components/summary";
 import { useQuery } from "@tanstack/react-query";
 import { getSummary } from "./http/get-summary";
-
-
 
 export function App() {
   const { data } = useQuery({
@@ -14,10 +13,12 @@ export function App() {
     staleTime: 1000 * 60 // 60 seconds 
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+
   return (
-    <Dialog>
+    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
       {data && data.total > 0 ? <Summary /> : <EmptyGoals />}
-      <CreateGoal />
+      <CreateGoal setOpen={setIsModalOpen} /> 
     </Dialog>
   );
 }
