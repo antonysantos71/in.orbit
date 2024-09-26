@@ -56,8 +56,8 @@ export function CreateGoal({ setOpen }: CreateGoalProps) {
           <div className="flex items-center justify-between">
             <DialogTitle>Cadastrar meta</DialogTitle>
             <DialogClose asChild>
-              <Button type="button" onClick={() => setOpen(false)}>
-                <X className="size-5 text-zinc-600" />
+              <Button type="button" variant="secondary" className="bg-transparent hover:bg-transparent" onClick={() => setOpen(false)}>
+                <X className="size-5 text-zinc-500 hover:" />
               </Button>
             </DialogClose>
           </div>
